@@ -469,7 +469,8 @@ if ( ! class_exists( 'WordPressSettingsFramework' ) ) {
                 foreach ( $args['subfields'] as $subfield ) {
                     $subfield = wp_parse_args( $subfield, $this->setting_defaults );
 
-                    $subfield['value'] = ( $blank ) ? "" : isset( $args['value'][ $row ][ $subfield['id'] ] ) ? $args['value'][ $row ][ $subfield['id'] ] : "";
+                    //$subfield['value'] = ( $blank ) ? "" : isset( $args['value'][ $row ][ $subfield['id'] ] ) ? $args['value'][ $row ][ $subfield['id'] ] : "";
+                    $subfield['value'] = $blank ? '' : (isset($args['value'][$row][$subfield['id']]) ? $args['value'][$row][$subfield['id']] : '');
                     $subfield['name']  = sprintf( '%s[%d][%s]', $args['name'], $row, $subfield['id'] );
                     $subfield['id']    = sprintf( '%s_%d_%s', $args['id'], $row, $subfield['id'] );
 
